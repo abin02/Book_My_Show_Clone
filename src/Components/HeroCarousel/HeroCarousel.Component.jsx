@@ -45,6 +45,10 @@ const HeroCarousel = () => {
         slideToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 3000,
+        cssEase: "linear",
     }
 
     const settings = {
@@ -55,6 +59,9 @@ const HeroCarousel = () => {
         slideToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        cssEase: "linear",
     }
 
     return (

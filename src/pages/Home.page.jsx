@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 //Components
 import EntertainmentCardSlider from '../Components/Entertainment/EntertainmentCard.Component';
 import HeroCarousel from '../Components/HeroCarousel/HeroCarousel.Component';
@@ -11,6 +12,33 @@ const HomePage = () => {
     const [premierMovies, setPremierMovies] = useState([]);
     const [onlineStreamEvents, setOnlineStreamEvents] = useState([]);
 
+    useEffect(() => {
+        const requestPopularMovies = async () => {
+            const getPopularMovies = await axios.get('/movie/popular');
+            setRecommendedMovies(getPopularMovies.data.results);
+        };
+
+        requestPopularMovies();
+    }, []);
+
+    useEffect(() => {
+        const requestTopRatedMovies = async () => {
+            const getTopRatedMovies = await axios.get('/movie/top_rated');
+            setPremierMovies(getTopRatedMovies.data.results);
+        };
+
+        requestTopRatedMovies();
+    }, []);
+
+    useEffect(() => {
+        const requestUpcomingMovies = async () => {
+            const getUpcomingMovies = await axios.get('/movie/upcoming');
+            setOnlineStreamEvents(getUpcomingMovies.data.results);
+        };
+
+        requestUpcomingMovies();
+    }, []);
+
     return (
         <>
             <HeroCarousel />
@@ -20,7 +48,7 @@ const HomePage = () => {
             </div>
 
             <div className='container mx-auto px-4 md:px-12 my-8'>
-                <PosterSlider title="Recommeneded Movies" subject="List of recommended movies" posters={recommendedMovies} isDark={false} />
+                <PosterSlider title="Recommeneded Movies" subtitle="List of recommended movies" posters={recommendedMovies} isDark={false} />
             </div>
 
             <div className='bg-premier-800 py-12'>
@@ -28,12 +56,12 @@ const HomePage = () => {
                     <div className='hidden md:flex'>
                         <img src='https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/premiere-banner-web-collection-202208191200.png' alt="Premiere" className='w-full h-full' />
                     </div>
-                    <PosterSlider title="Premiers" subject="Brand new releases very Friday" posters={premierMovies} isDark={true} />
+                    <PosterSlider title="Premiers" subtitle="Brand new releases very Friday" posters={premierMovies} isDark={true} />
                 </div>
             </div>
 
             <div className='container mx-auto px-4 md:px-12 my-8s'>
-                <PosterSlider title="Online Streaming Event" subject="" posters={onlineStreamEvents} isDark={false} />
+                <PosterSlider title="Online Streaming Event" subtitle="" posters={onlineStreamEvents} isDark={false} />
             </div>
         </>
     )
