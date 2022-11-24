@@ -3,8 +3,8 @@ import { BiSupport, BiReceipt, BiListOl, BiLeftIndent, BiWorld } from 'react-ico
 const Footer = () => {
     return (
         <>
-            <div className='container text-md text-black bg-red-400 p-4'>
-                <div className=' flex-col'>
+            <div className=' bg-red-400'>
+                <div className=' flex-col text-md text-black p-4 w-full'>
                     <hr />
                     <div className='flex gap-2 justify-end'>
                         Contact us
