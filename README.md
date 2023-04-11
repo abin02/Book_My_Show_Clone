@@ -1,5 +1,5 @@
 
-# Book My Show Clone
+# Movie booking site inspired by BMS
 
 This is project of Book My Show clone using react and tailwindCSS.
 
@@ -44,7 +44,7 @@ To deploy this project run
   npm run deploy
 ```
 
-https://book-my-show-clone-livid.vercel.app/
+https://movie-near-me-6tn6.vercel.app/
 ## Screenshots
 
 
