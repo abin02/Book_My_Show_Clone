@@ -71,7 +71,7 @@ function NavLg() {
 //main Component
 const Navbar = () => {
     return (
-        <nav className='bg-darkBackground-700 px-4 py-3'>
+        <nav className='bg-red-400 px-4 py-3'>
             {/*Mobile screen navbar*/}
             <div className='md:hidden'>
                 <NavSm />
